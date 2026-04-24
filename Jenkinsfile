@@ -9,10 +9,4 @@ pipeline {
             }
         }
     }
-        stage ("teste"){    
-            steps{
-                echo "teste"
-            }
-    }
-
 }
