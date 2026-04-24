@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "fomula one"
+        label "fomula-one"
     }
     stages {
         stage ("build") {
