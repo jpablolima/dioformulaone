@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo "Deployment to project..."
                 sh "kind load docker-image formulaone:v1 --name devops"
-                sh "kubectl apply -f formula-one.yaml"
+                sh "kubectl apply -f formula-one.yaml --validate=false"
                 
             }
         }
