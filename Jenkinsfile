@@ -3,7 +3,7 @@ pipeline {
         label "formula-one"
     }
     environment {
-        KUBECONFIG = "/root/.kube/config" 
+        KUBECONFIG = "/home/pablo/.kube/config" 
     }
     stages {
         stage ("build") {
