@@ -52,7 +52,7 @@ var teams = [
 ];
 var drivers = [
   { id: 1, name: "Max Verstappen", team: "Red Bull Racing" },
-  { id: 1, name: "Lewis Hamilton", team: "Ferrari" },
+  { id: 2, name: "Lewis Hamilton", team: "Ferrari" },
   { id: 3, name: "George Russell", team: "Mercedes" }
 ];
 server.get("/teams", (req, res) => __async(exports, null, function* () {
@@ -63,6 +63,17 @@ server.get("/drivers", (req, res) => __async(exports, null, function* () {
   res.type("application/json").code(200);
   return { drivers };
 }));
-server.listen({ port: 3331 }, () => {
+server.get("/drivers/:id", (req, res) => __async(exports, null, function* () {
+  const id = parseInt(req.params.id);
+  const driver = drivers.find((d) => d.id === id);
+  if (!driver) {
+    res.type("application/json").code(404);
+    return { message: "Driver Not Found" };
+  } else {
+    res.type("application/json").code(200);
+    return { driver };
+  }
+}));
+server.listen({ port: 3331, host: "0.0.0.0" }, () => {
   console.log("Servidor iniciado ma PORTA: 3331");
 });
