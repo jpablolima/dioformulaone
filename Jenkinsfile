@@ -15,7 +15,7 @@ pipeline {
                 echo "Creating image to project..."
                 sh "docker images"
                 sh "docker build -t formulaone:v1 ."
-                docker "docker images | grepe formulaone"
+                sh "docker images | grepe formulaone"
 
             }
         }
