@@ -2,6 +2,9 @@ pipeline {
     agent {
         label "formula-one"
     }
+    environment {
+        KUBECONFIG = "/root/.kube/config" 
+    }
     stages {
         stage ("build") {
             steps {
