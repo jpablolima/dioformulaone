@@ -4,6 +4,7 @@ pipeline {
     }
     environment {
         KUBECONFIG = "/home/pablo/.kube/config" 
+        IMAGE_TAG  = "formulaone:{BUILD_NUMBER}"
     }
     stages {
         stage ("build") {
@@ -17,7 +18,7 @@ pipeline {
             steps {
                 echo "Creating image to project..."
                 sh "docker images"
-                sh "docker build -t formulaone:v1 ."
+                sh "docker build -t ${IMAGE_TAG} ."
                 sh "docker images | grep formulaone"
 
             }
@@ -25,7 +26,7 @@ pipeline {
         stage ("Deployment") {
             steps {
                 echo "Deployment to project..."
-                sh "kind load docker-image formulaone:v1 --name devops"
+                sh "kind load docker-image ${IMAGE_TAG} --name devops"
                 sh "kubectl apply -f formula-one.yaml --validate=false"
                 
             }
