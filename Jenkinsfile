@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
         KUBECONFIG = "/home/pablo/.kube/config" 
-        IMAGE_TAG  = "formulaone:{BUILD_NUMBER}"
+        IMAGE_TAG  = "formulaone:${BUILD_NUMBER}"
     }
     stages {
         stage ("build") {
