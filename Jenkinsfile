@@ -4,7 +4,8 @@ pipeline {
     }
     environment {
         KUBECONFIG = "/home/pablo/.kube/config" 
-        IMAGE_TAG  = "formulaone:${BUILD_NUMBER}"
+        IMAGE_NAME = "formula-one"
+        IMAGE_TAG  = "formula-one:${BUILD_NUMBER}"
     }
     stages {
         stage ("build") {
@@ -17,9 +18,8 @@ pipeline {
         stage ("Build image") {
             steps {
                 echo "Creating image to project..."
-                sh "docker images"
                 sh "docker build -t ${IMAGE_TAG} ."
-                sh "docker images | grep formulaone"
+                sh "docker images | grep ${IMAGE_NAME}"
 
             }
         }
