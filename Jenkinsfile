@@ -5,7 +5,7 @@ pipeline {
     environment {
         KUBECONFIG = "/home/pablo/.kube/config" 
         IMAGE_NAME = "formula-one"
-        IMAGE_TAG  = "formula-one:${BUILD_NUMBER}"
+        IMAGE_TAG  = "formula-one:latest"
     }
     stages {
         stage ("build") {
@@ -27,7 +27,9 @@ pipeline {
             steps {
                 echo "Deployment to project..."
                 sh "kind load docker-image ${IMAGE_TAG} --name devops"
-                sh "kubectl apply -f formula-one.yaml --validate=false"
+                sh "kubectl delete pod formula-one -n dio --ignore-not-found=true "
+                sh "kubectl apply -f formula-one.yaml -n dio"
+                sh "kubectl wait --for=condition=Ready pod/formula-one -n dio --timeout=60s"
                 
             }
         }

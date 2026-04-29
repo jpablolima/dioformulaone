@@ -3,10 +3,18 @@ import fastify from  "fastify";
 const server = fastify({ logger: true});
 
 const teams = [
-        {   id: 1, name:  "Ferrari", base: "Maranello, Itália" },
-        {   id: 2, name:  "Mercedes", base: "Brackley, United Kingdom" } ,
-        {   id: 3, name:  "Red Bull Racing", base: "Milton, United Kingdom" }
-]
+    { id: 1, name: "Ferrari", base: "Maranello, Itália" },
+    { id: 2, name: "Mercedes", base: "Brackley, Reino Unido" },
+    { id: 3, name: "Red Bull Racing", base: "Milton Keynes, Reino Unido" },
+    { id: 4, name: "McLaren", base: "Woking, Reino Unido" },
+    { id: 5, name: "Aston Martin", base: "Silverstone, Reino Unido" },
+    { id: 6, name: "Alpine", base: "Enstone, Reino Unido" },
+    { id: 7, name: "Haas F1 Team", base: "Kannapolis, EUA" },
+    { id: 8, name: "Williams", base: "Grove, Reino Unido" },
+    { id: 9, name: "Racing Bulls", base: "Faenza, Itália" },
+    { id: 10, name: "Audi", base: "Hinwil, Suíça" },
+    { id: 11, name: "Cadillac F1 Team", base: "Indianápolis, EUA" }
+];
 
 const drivers = [
     { id: 1, name: "Max Verstappen", team: "Red Bull Racing" },

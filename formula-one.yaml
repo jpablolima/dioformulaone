@@ -6,7 +6,7 @@ metadata:
 spec:
     containers:
         - name: formula-one
-          image: formula-one:v1
+          image: formula-one:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3331
