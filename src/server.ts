@@ -18,9 +18,28 @@ const teams = [
 
 const drivers = [
     { id: 1, name: "Max Verstappen", team: "Red Bull Racing" },
-    { id: 2, name: "Lewis Hamilton", team: "Ferrari" },
-    { id: 3, name: "George Russell", team: "Mercedes" },
-]
+    { id: 2, name: "Sergio Perez", team: "Red Bull Racing" },
+    { id: 3, name: "Lewis Hamilton", team: "Ferrari" },
+    { id: 4, name: "Charles Leclerc", team: "Ferrari" },
+    { id: 5, name: "George Russell", team: "Mercedes" },
+    { id: 6, name: "Andrea Kimi Antonelli", team: "Mercedes" },
+    { id: 7, name: "Lando Norris", team: "McLaren" },
+    { id: 8, name: "Oscar Piastri", team: "McLaren" },
+    { id: 9, name: "Fernando Alonso", team: "Aston Martin" },
+    { id: 10, name: "Lance Stroll", team: "Aston Martin" },
+    { id: 11, name: "Pierre Gasly", team: "Alpine" },
+    { id: 12, name: "Esteban Ocon", team: "Alpine" },
+    { id: 13, name: "Kevin Magnussen", team: "Haas F1 Team" },
+    { id: 14, name: "Nico Hulkenberg", team: "Haas F1 Team" },
+    { id: 15, name: "Alexander Albon", team: "Williams" },
+    { id: 16, name: "Logan Sargeant", team: "Williams" },
+    { id: 17, name: "Yuki Tsunoda", team: "Racing Bulls" },
+    { id: 18, name: "Daniel Ricciardo", team: "Racing Bulls" },
+    { id: 19, name: "Valtteri Bottas", team: "Audi" },
+    { id: 20, name: "Zhou Guanyu", team: "Audi" },
+    { id: 21, name: "Colton Herta", team: "Cadillac F1 Team" },
+    { id: 22, name: "Felipe Drugovich", team: "Cadillac F1 Team" }
+];
 
 server.get("/teams", async (req, res) => {
     res.type("application/json").code(200)
