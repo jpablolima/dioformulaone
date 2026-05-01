@@ -1,4 +1,5 @@
 import fastify from  "fastify";
+import { parse } from "path";
 
 const server = fastify({ logger: true});
 
@@ -46,6 +47,10 @@ server.get("/teams", async (req, res) => {
     return { teams };
 });
 
+interface TeamsParams{
+    id: string
+}
+
 
 server.get("/drivers", async (req, res) => {
     res.type("application/json").code(200)
@@ -68,6 +73,22 @@ server.get<{ Params: DriverParams }>("/drivers/:id", async (req, res) => {
         return { driver };
     }
 })
+
+server.get< {Params: TeamsParams }>("/teams/:id", async(req, res ) => {
+    const id = parseInt(req.params.id);
+    const team = teams.find((t) => t.id === id);
+
+    if (!team) {
+        res.type("application/json").code(404);
+        return { message: "Team not Found" };
+    } else {
+        res. type("application/json").code(200);
+        return { team }
+    }
+
+
+});
+
 
 
 server.listen({ port: 3331, host:  "0.0.0.0" }, () => {
