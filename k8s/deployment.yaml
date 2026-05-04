@@ -5,7 +5,7 @@ metadata:
     labels: 
       app: formula-one
 spec: 
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: formula-one
