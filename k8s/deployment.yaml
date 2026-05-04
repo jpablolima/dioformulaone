@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: formula-one
+    labels: 
+      app: formula-one
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: formula-one
+  template:
+    metadata:
+      labels:
+        app: formula-one
+    spec:
+      containers:
+      - name: formula-one
+        image: formula-one
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3331
